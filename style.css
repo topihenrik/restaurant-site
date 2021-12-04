@@ -1,0 +1,43 @@
+html, body, #content {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    background-image: url("./restaurant-table.jpg");
+    background-size: cover;
+    background-attachment: fixed
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.header, .main, .footer {
+    display: flex;
+    background-color: #58181F;
+}
+
+.header, .footer {
+    padding: 20px;
+    justify-content: center;
+}
+
+.main {
+    flex-direction: column;
+    align-self: center;
+    max-width: 60%;
+    padding: 20px;
+}
+
+
+.block-1 {
+    background-color: red;
+}
+
+#img-table {
+    width: 100%;
+}
+
