@@ -1,0 +1,154 @@
+@font-face {
+    font-family: "Quicksand-Regular";
+    src: url('./Quicksand-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Quicksand-Medium";
+    src: url('./Quicksand-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Quicksand-Bold";
+    src: url('./Quicksand-Bold.ttf') format('truetype');
+}
+
+html, body, #content {
+    margin: 0;
+    height: 100%;
+    font-family: "Quicksand-Bold";
+}
+
+body {
+    background-image: url("./restaurant-table.jpg");
+    background-size: cover;
+    background-attachment: fixed
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.header, .main, .footer {
+    display: flex;
+}
+
+.header, .footer {
+    padding: 20px;
+    background-color: #58181F
+}
+
+.header {
+    padding: 0px;
+    justify-content: space-between;
+    border-bottom: black solid 3px;
+}
+
+.footer {
+    border-top: black solid 2px;
+    justify-content: center;
+}
+
+.footerText {
+    color: black;
+}
+
+.headerTitle, .menuItemText {
+    color: white;
+}
+
+.headerTitle {
+    font-size: 50px;
+    padding: 20px;
+    margin: 0px;
+}
+
+.block {
+    background-color: #FFE4E3;
+}
+
+.menuItemText {
+    margin: 0px;
+    width: 60px;
+    text-align: center;
+}
+
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    /* gap: 20%; */
+}
+
+.divider {
+    display: flex;
+    height: 100%;
+    border-right: black solid 2px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.menuItem {
+    display: flex;
+    padding-right: 20px;
+    padding-left: 20px;
+    height: 100%;
+    /* border: black solid 3px;
+    border-bottom: none;
+    border-top: none; */
+    align-items: center;
+}
+
+.menuItem:hover {
+    background-color: #3E1116;
+}
+
+.main {
+    flex-direction: column;
+    align-self: center;
+    width: 600px;
+    gap: 20px;
+    font-family: "Quicksand-Medium";
+}
+
+.menuTitle {
+    font-size: 40px;
+}
+
+.menuHr {
+    width: 80%;
+    margin: -2px;
+    border: 1px solid black;
+}
+
+.block img {
+    width: 80%;
+}
+
+.blockImage {
+    border: #58181F solid 5px;
+}
+
+.block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: #58181F solid 5px;
+    padding: 20px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
+                0 2px 4px rgba(0,0,0,0.07), 
+                0 4px 8px rgba(0,0,0,0.07), 
+                0 8px 16px rgba(0,0,0,0.07),
+                0 16px 32px rgba(0,0,0,0.07), 
+                0 32px 64px rgba(0,0,0,0.07);
+}
+
+#img-table {
+    width: 100%;
+}
+

@@ -1,35 +1,103 @@
-function component() {
+import "./style.css";
+import {mainHomeComponent} from "./home"; 
+import {mainMenuComponent} from "./menu";
+import {mainContactComponent} from "./contact";
+import faviconData from "./favicon.svg";
+
+
+function initHome() {
+    const favicon = document.createElement("link");
+    favicon.setAttribute("rel", "icon");
+    favicon.setAttribute("href", faviconData);
+    document.head.appendChild(favicon);
+
     const content = document.querySelector("#content");
     
     const header = document.createElement("div");
     header.className = "header";
-    const headerTitle = document.createElement("h1");
-    headerTitle.textContent = "Great Restaurant";
-    header.appendChild(headerTitle);
+
+    const h1HeaderTitle = document.createElement("h1");
+    h1HeaderTitle.className = "headerTitle";
+    h1HeaderTitle.textContent = "Candle";
+    header.appendChild(h1HeaderTitle);
+
+    const divHeaderMenu = document.createElement("div");
+    divHeaderMenu.className = "menu";
+
+    const divDivider = document.createElement("div");
+    divDivider.className = "divider";
+    divHeaderMenu.appendChild(divDivider.cloneNode());
+
+    const divHeaderMenuHome = document.createElement("div");
+    divHeaderMenuHome.className = "menuItem";
+    divHeaderMenuHome.id = "menuHome";
+    const pHeaderMenuHome = document.createElement("p");
+    pHeaderMenuHome.textContent = "Home";
+    pHeaderMenuHome.className = "menuItemText";
+    divHeaderMenuHome.appendChild(pHeaderMenuHome);
+    divHeaderMenu.appendChild(divHeaderMenuHome);
+    divHeaderMenu.appendChild(divDivider.cloneNode());
+    
+
+    const divHeaderMenuMenu = document.createElement("div");
+    divHeaderMenuMenu.className = "menuItem";
+    divHeaderMenuMenu.id = "menuMenu"
+    const pHeaderMenuMenu = document.createElement("p");
+    pHeaderMenuMenu.textContent = "Menu";
+    pHeaderMenuMenu.className = "menuItemText";
+    divHeaderMenuMenu.appendChild(pHeaderMenuMenu);
+    divHeaderMenu.appendChild(divHeaderMenuMenu);
+    divHeaderMenu.appendChild(divDivider.cloneNode());
+
+    const divHeaderMenuContact = document.createElement("div");
+    divHeaderMenuContact.className = "menuItem";
+    divHeaderMenuContact.id = "menuContact";
+    const pHeaderMenuContact = document.createElement("p");
+    pHeaderMenuContact.textContent = "Contact";
+    pHeaderMenuContact.className = "menuItemText";
+    divHeaderMenuContact.appendChild(pHeaderMenuContact);    
+    divHeaderMenu.appendChild(divHeaderMenuContact);
+
+    header.appendChild(divHeaderMenu);
+    
     content.appendChild(header);
 
-    const main = document.createElement("div");
-    main.className = "main";
-    const block = document.createElement("div");
-    block.className = "block";
-    const h1MainText = document.createElement("h1");
-    h1MainText.textContent = "We are the best restaurant in town!";
-    block.appendChild(h1MainText);
-    const pMainText = document.createElement("p");
-    pMainText.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-    block.appendChild(pMainText);
-    main.appendChild(block);
-    content.appendChild(main);
+
+
+    content.appendChild(mainHomeComponent());
 
 
     const footer = document.createElement("div");
     footer.className = "footer";
     const pFooterText = document.createElement("p");
-    pFooterText.textContent = "Footer";
+    pFooterText.className = "footerText";
+    pFooterText.textContent = "Developed by topihenrik";
     footer.appendChild(pFooterText);
     content.appendChild(footer);
 
     return;
 }
 
-component();
+function menuClickListener() {
+    const menuItems = document.querySelectorAll(".menuItem");
+    menuItems.forEach(item => item.addEventListener("click", function(e) {
+        console.log(item.id);
+        const divContent = document.querySelector("#content");
+        const divMain = document.querySelector(".main");
+        const divFooter = document.querySelector(".footer");
+        if (item.id == "menuHome") {
+            divMain.remove();
+            divContent.insertBefore(mainHomeComponent(), divFooter);
+        } else if (item.id == "menuMenu") {
+            divMain.remove();
+            divContent.insertBefore(mainMenuComponent(), divFooter);
+        } else if (item.id == "menuContact") {
+            divMain.remove();
+            divContent.insertBefore(mainContactComponent(), divFooter);
+        }
+
+    }));
+}
+
+initHome();
+menuClickListener();
