@@ -1,6 +1,7 @@
 # restaurant-site
 Basic web development exercise.
-https://topihenrik.github.io/restaurant-site/
+
+Live preview: https://topihenrik.github.io/restaurant-site/
 ## What was learned?
 - basic usage of npm and webpack
 - ES6 Modules: import and export to create multiple tabs
